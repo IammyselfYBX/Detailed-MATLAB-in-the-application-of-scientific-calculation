@@ -1,0 +1,1 @@
+picinformation=imfinfo('pic1','jpg')
