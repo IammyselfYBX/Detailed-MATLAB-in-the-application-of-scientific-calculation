@@ -1,0 +1,1 @@
+x=sin(1), y=cos(1); z=tan(1), w=atan(1)
