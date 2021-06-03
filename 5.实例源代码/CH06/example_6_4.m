@@ -1,0 +1,11 @@
+x=-1:0.01:1;  % 加密数据点
+xdata=-1:0.2:1;  % 已知数据点
+ydata=1./(1+25*xdata.^2);  % 点xdata处的函数值
+yi=interp1(xdata,ydata,x);  % 线性插值
+subplot(2,1,1)  % 图形分割
+plot(x,1./(1+25*x.^2),'k',x,yi,'k:',xdata,ydata,'ko')  % 绘制图形
+legend('解析曲线','分段线性插值曲线')  % 添加图例
+text(-0.9,0.9,'\fontname{隶书}\fontsize{16}分段线性插值')  % 添加标注
+subplot(2,1,2)  % 图形分割
+plot(x,yi-1./(1+25*x.^2),'k')  % 绘制图形
+legend('分段线性插值误差曲线')  % 添加图例
