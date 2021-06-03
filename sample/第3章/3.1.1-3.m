@@ -1,0 +1,10 @@
+m=magic(3)		%建立魔术矩阵
+h=hilb(4)		%建立Hilbert矩阵
+c1=cond(m)		%求解矩阵m的2-范数的条件数
+c2=cond(m,1)	%求解矩阵m的1-范数的条件数
+c3=rcond(m)	%求解矩阵m条件数的倒数
+c4=condest(m)	%求解矩阵m的1-范数条件数的估计值
+h1=condest(h)	%求解矩阵h的1-范数条件数的估计值
+h2=cond(h,inf) %求解矩阵h的无穷范数的条件数
+h3=rcond(h)	%求解矩阵h条件数的倒数
+h4=condest(h)	

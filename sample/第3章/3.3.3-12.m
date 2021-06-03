@@ -1,0 +1,6 @@
+str2double('123.45e7')
+str2double('13+25i')
+str2double('13456+123456i')
+str2double('3.14159')
+str2double('-17i+34')
+str2double('1200.34')
