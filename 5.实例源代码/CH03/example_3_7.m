@@ -1,0 +1,9 @@
+format short;a1=1/3
+format short e;a2=1/3
+format short g;a3=1/3
+format long;a4=1/3
+format long e ;a5=1/3
+format long g;a6=1/3
+format rat;a7=1/3
+format bank;a8=1/3
+format hex;a9=1/3

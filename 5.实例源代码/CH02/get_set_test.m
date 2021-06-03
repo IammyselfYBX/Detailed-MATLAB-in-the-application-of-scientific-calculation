@@ -1,0 +1,26 @@
+x=-2*pi:0.05*pi:2*pi;
+y=sin(0.5*x).*cos(2*x);
+fh=figure('Color','w');
+ah=axes('Parent',fh,'XLim',[-8 10],'YLim',[-1 1],'XColor','b','YColor','b',...
+    'Visible','off');
+pos=get(ah,'position');  % 获取坐标轴句柄ah的位置
+ahx=axes('Parent',fh,'Layer','top','Position',[pos(1),pos(2)+pos(4)/2,pos(3),eps],...
+    'XLim',[-8 10],'XColor','k','XAxisLocation','top',...
+    'YColor','w','YTick',[]);  % 绘制第二个坐标轴并设置其位置颜色等相关属性
+ahy=axes('Parent',fh,'Layer','top','Position',[pos(1)+4/9*pos(3),pos(2),eps,pos(4)],...
+    'YLim',[-1 1],'YColor','k','XColor','w','XTick',[]);  % 绘制第三个坐标轴
+line('XData',x,'YData',y,'Parent',ah,'Color','g')  % 在句柄为ah的坐标轴中绘制曲线
+ahh=axes('Parent',fh,'Layer','top','Position',[0.68 0.65 0.2 0.2]);  % 绘制第四个坐标轴
+set(fh,'CurrentAxes',ahh);  % 设置ahh为当前坐标轴
+lh=ezplot(@(x)(sin(0.5*x).*cos(2*x)),[0.35 0.55]);  % 在ahh坐标轴中绘制曲线
+set(get(ahh,'Title'),'String','zoomed x:[0.35 0.55]','Color','b');  % 添加标题
+set(ahh,'XColor','b','YColor','b','Box','on','LineWidth',0.5,...
+    'XTick',[0.45],'XTickLabel','0.45','YTick',[0.13],'YTickLabel','0.13',...
+    'XGrid','on','YGrid','on')
+set(get(ahh,'XLabel'),'String','')  % 将x轴标注设为空
+set(get(ahh,'YLabel'),'String','')  % 将y轴标注设为空
+set(lh,'LineStyle','--','Color','r')  % 设定曲线类型及颜色
+annotation('arrow',[pos(1)+pos(3) pos(1)+pos(3)+0.05],...
+    [pos(2)+pos(4)/2 pos(2)+pos(4)/2]);  % 绘制x轴箭头
+annotation('arrow',[pos(1)+4/9*pos(3)+0.001 pos(1)+4/9*pos(3)+0.001],...
+    [pos(2)+pos(4) pos(2)+pos(4)+0.05]);  % 绘制y轴箭头
