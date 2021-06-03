@@ -1,0 +1,9 @@
+n=4;
+x=(-1).^((1:n)-1)./(1:n);
+C=gallery('circul',x);  % 利用向量x生成循环矩阵
+C=repmat(C,2,1);  % 复制矩阵C
+d=n-1:-1:-n;  % 构造向量d
+lb = -0.1*ones(n,1);
+ub = 2*ones(n,1);
+options=optimset('LargeScale','off');  % 设置不使用大型算法
+[x,resnorm,residual] = lsqlin(C,d,[],[],[ ],[ ],lb,ub,[],options)  % 线性最小二乘问题求解
